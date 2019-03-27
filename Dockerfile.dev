@@ -1,0 +1,17 @@
+#BASE
+FROM node:alpine
+
+#WORKDIR
+WORKDIR '/usr/app'
+
+#COPY PACKAGE
+COPY ./package.json ./
+
+#INSTALL DEP
+RUN npm install
+
+#COPY DIR TO CONTAINER
+COPY ./ ./
+
+#RUN CMD
+CMD ["npm", "start"]
