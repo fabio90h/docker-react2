@@ -5,6 +5,6 @@ services:
   - docker
 #BEFORE INSTALL
 before_install:
-  - docker build -t fabio90h/docker-react -f Dockerfile.dev
+  - docker build -t fabio90h/docker-react -f Dockerfile.dev .
 #SCRIPT
   - docker run fabio90h/docker-react npm run test -- --coverage
