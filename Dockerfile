@@ -2,15 +2,15 @@
 FROM node:alpine as builder
 
 #WORKDIR
-WORKDIR '/usr/app'
+WORKDIR /app
 
-#COPY PACKAGE
+#COPY DEP
 COPY ./package.json ./
 
 #INSTALL DEP
 RUN npm install
 
-#COPY DIR TO CONTAINER
+#COPY DIR
 COPY ./ ./
 
 #RUN BUILD
@@ -19,8 +19,8 @@ RUN npm run build
 #BASE
 FROM nginx
 
-#COPY BUILD TO CONTAINER
-COPY --from=builder /usr/app/build /usr/share/nginx/html
+#COPY
+COPY --from=builder /app/build /usr/share/nginx/html
 
 
 

@@ -2,15 +2,15 @@
 FROM node:alpine
 
 #WORKDIR
-WORKDIR '/usr/app'
+WORKDIR /usr/app
 
-#COPY PACKAGE
+#COPY DEP
 COPY ./package.json ./
 
 #INSTALL DEP
 RUN npm install
 
-#COPY DIR TO CONTAINER
+#COPY DIR
 COPY ./ ./
 
 #RUN CMD
